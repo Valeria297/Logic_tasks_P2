@@ -34,11 +34,14 @@ public class Main {
         }
 
         for (int i = 0; i < results.size(); i++) {
-            Box box = results.get(i);
-            Box box2 = results.get(i + 1);
-            if (box.getVolume(box) > box2.getVolume(box2)) {
-               box2 = box;
-               box = box2;
+            for (int j = 0; j < results.size() - 1 - i; j++) {
+                Box box = results.get(i);
+                Box box2 = results.get(i + 1);
+                if (box.getVolume(box) > box2.getVolume(box2)) {
+                    Object obTemp = box;
+                    box = box2;
+                    box2 = (Box) obTemp;
+                }
             }
         }
 
