@@ -7,22 +7,22 @@ public class CalculatorTask5 {
         static Scanner scanner = new Scanner(System.in);
 
         public static void main(String[] args) {
-            int num1 = getInt();
-            int num2 = getInt();
+            double num1 = getDouble();
+            double num2 = getDouble();
             char operation = getOperation();
-            int result = calc(num1,num2,operation);
+            double result = calc(num1,num2,operation);
             System.out.println("Result: " + result);
         }
 
-        public static int getInt(){
+        public static double getDouble(){
             System.out.println("Input the number: ");
-            int num;
-            if(scanner.hasNextInt()){
-                num = scanner.nextInt();
+            double num;
+            if(scanner.hasNextDouble()){
+                num = scanner.nextDouble();
             } else {
                 System.out.println("Input the correct data.");
                 scanner.next();
-                num = getInt();
+                num = getDouble();
             }
             return num;
         }
@@ -41,8 +41,8 @@ public class CalculatorTask5 {
             return operation;
         }
 
-        public static int calc(int num1, int num2, char operation){
-            int result = 0;
+        public static double calc(double num1, double num2, char operation){
+            double result = 0.0;
             switch (operation){
                 case '+':
                     result = num1 + num2;
@@ -54,7 +54,7 @@ public class CalculatorTask5 {
                     result = num1 * num2;
                     break;
                 case '/':
-                    if (num2 == 0) {
+                    if (num2 == 0.0) {
                         return Integer.parseInt(("Impossible operation."));
                     } else {
                         result = num1 / num2;

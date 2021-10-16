@@ -20,14 +20,12 @@ public class Main {
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
 
         //Task_10
-       /* List<Object> results = new ArrayList<Object>();
+        List<Box> results = new ArrayList<Box>();
         FileInputStream fis = new FileInputStream("C:\\Users\\ольга\\IdeaProjects\\hw5\\src\\com\\company\\Files\\OUTPUT.txt-9task");
         ObjectInputStream ois = new ObjectInputStream(fis);
 
         try {
-            while (true) {
-                results.add(ois.readObject());
-            }
+            results = (List<Box>) ois.readObject();
         } catch (OptionalDataException e) {
             if (!e.eof)
                 throw e;
@@ -35,40 +33,31 @@ public class Main {
             ois.close();
         }
 
-        System.out.println(results);
-*/
-
-
-
-        List<Object> list = new LinkedList<>();
-        try (
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(
-                                new FileInputStream("C:\\Users\\ольга\\IdeaProjects\\hw5\\src\\com\\company\\Files\\OUTPUT.txt-9task"),
-                                StandardCharsets.UTF_8
-                        )
-                )
-        ) {
-            Object ob;
-            while ((ob = reader.readLine()) != null) {
-                list.add(ob);
+        for (int i = 0; i < results.size(); i++) {
+            Box box = results.get(i);
+            Box box2 = results.get(i + 1);
+            if (box.getVolume(box) > box2.getVolume(box2)) {
+               box2 = box;
+               box = box2;
             }
-        } catch (IOException e) {
         }
 
-        System.out.println(list);
+        System.out.println(results);
 
-
-
-
-
+        Box box = new Box();
+        FileOutputStream fout = new FileOutputStream("C:\\Users\\ольга\\IdeaProjects\\hw5\\src\\com\\company\\Files\\OUTPUT.txt-9task");
+        ObjectOutputStream oos = new ObjectOutputStream(fout);
+        oos.writeObject(results.get(4).getVolume(box));
+        oos.close();
 
 
         //Task_9
-       /* List<Box> list = new LinkedList<>();
+        /*List<Box> list = new LinkedList<>();
 
         for (int i = 0; i < 5; i++) {
-            Box box = new Box((int) (Math.random() * 100), (int) (Math.random() * 100));
+            Box box = new Box((int) (Math.random() * 100),
+                              (int) (Math.random() * 100),
+                              (int) (Math.random() * 100));
             list.add(box);
         }
 
@@ -76,10 +65,7 @@ public class Main {
         FileOutputStream fout = new FileOutputStream("C:\\Users\\ольга\\IdeaProjects\\hw5\\src\\com\\company\\Files\\OUTPUT.txt-9task");
         ObjectOutputStream oos = new ObjectOutputStream(fout);
         oos.writeObject(list);
-        oos.close();
-        */
-
-
+        oos.close();*/
 
 
         //Task_8
@@ -141,31 +127,6 @@ public class Main {
         writer.close(); */
 
 
-        //Task_6
-      /*  Scanner scanner = new Scanner (new File("C:\\Users\\ольга\\IdeaProjects\\hw5\\src\\com\\company\\INPUT.txt"));
-        int rows = 0;
-        int columns = 0;
-        while(scanner.hasNextLine())
-        {
-            ++rows;
-            Scanner colReader = new Scanner(scanner.nextLine());
-            while(colReader.hasNextInt())
-            {
-                ++columns;
-            }
-        }
-        int[][] a = new int[rows][columns];
-        for(int i = 0; i < rows; ++i)
-        {
-            for(int j = 0; j < columns; ++j)
-            {
-                if(scanner.hasNextInt())
-                {
-                    a[i][j] = scanner.nextInt();
-                }
-            }
-        }
-        System.out.println(Arrays.deepToString(a));*/
 
 
         //  Task_4
